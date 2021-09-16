@@ -29,7 +29,7 @@ public class PhotoService {
     }
 
     public PhotoDto findById(String id) {
-        Optional<PhotoDocument> photoDocument = photoRepository.findUserIDByEmailAddress(id);
+        Optional<PhotoDocument> photoDocument = photoRepository.findByEmailAddress(id);
         if (photoDocument.isPresent()) {
             System.out.println(photoDocument.get());
             return getPhotoDto(photoDocument.get());

@@ -17,8 +17,8 @@ public interface PhotoRepository extends ElasticsearchRepository<PhotoDocument, 
 //
 //    Page<PhotoDocument> findByThumbnailUrl(String title, Pageable pageable);
    // @Query("{\"bool\": {\"must\": [ {\"match\": {\"Firstname\": \"?0\"}}, {\"match\": {\"UserID\": 127592423}} ]}}")
-    @Query("{\"match\": {\"UserID\": \"127592423\"}}")
-    Optional<PhotoDocument> findUserIDByEmailAddress(String id);
+//    @Query("{\"match\": {\"UserID\": \"127592423\"}}")
+    Optional<PhotoDocument> findByEmailAddress(String id);
 
     @Query("{\"match\": {\"?0\": \"?1\"}}")
     List<PhotoDocument> findByUsingQuery(String key, String value);
