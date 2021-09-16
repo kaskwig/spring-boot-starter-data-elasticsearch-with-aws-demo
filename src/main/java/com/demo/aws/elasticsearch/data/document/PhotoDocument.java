@@ -9,11 +9,16 @@ import org.springframework.data.elasticsearch.annotations.Document;
  * create and index during application boot
  */
 @Data
-@Document(indexName = "dev_photos", type = "_doc", createIndex = false)
+@Document(indexName = "tmp-cmcustomersformatching-avro-v3", type = "_doc", createIndex = false)
 public class PhotoDocument {
     @Id
     private String id;
-    private String title;
-    private String url;
-    private String thumbnailUrl;
+    private Integer UserID;
+//    private Integer ChannelID;
+//    private String DateOfBirth;
+//    private String EmailAddress;
+//    private String Firstname;
+//    private String Lastname;
+//    private String Gender;
+//    private Integer GenderID;
 }

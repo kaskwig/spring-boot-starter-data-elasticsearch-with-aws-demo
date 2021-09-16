@@ -2,6 +2,7 @@ package com.demo.aws.elasticsearch.data.configuration;
 
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.auth.DefaultAWSCredentialsProviderChain;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,8 +17,9 @@ public class AWSCredentialsConfiguration {
     private String esSecretKey = null;
 
     @Bean
-    public AWSStaticCredentialsProvider awsDynamoCredentialsProviderDevelopment() {
-        return new AWSStaticCredentialsProvider(new BasicAWSCredentials(
-                esAccessKey, esSecretKey));
+    public DefaultAWSCredentialsProviderChain awsDynamoCredentialsProviderDevelopment() {
+//        return new AWSStaticCredentialsProvider(new BasicAWSCredentials(
+//                esAccessKey, esSecretKey));
+        return new DefaultAWSCredentialsProviderChain();
     }
 }

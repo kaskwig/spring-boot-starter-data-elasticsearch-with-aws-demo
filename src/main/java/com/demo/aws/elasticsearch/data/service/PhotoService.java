@@ -29,8 +29,9 @@ public class PhotoService {
     }
 
     public PhotoDto findById(String id) {
-        Optional<PhotoDocument> photoDocument = photoRepository.findById(id);
+        Optional<PhotoDocument> photoDocument = photoRepository.findUserIDByEmailAddress(id);
         if (photoDocument.isPresent()) {
+            System.out.println(photoDocument.get());
             return getPhotoDto(photoDocument.get());
         }
         throw new ApplicationException(HttpStatus.NOT_FOUND);
@@ -49,11 +50,11 @@ public class PhotoService {
         return photoDocument;
     }
 
-    public void updatePhoto(String id, PhotoDto document) {
-        findById(id);
-        PhotoDocument photoDocumentEntity = getPhotoDocument(document);
-        photoRepository.save(photoDocumentEntity);
-    }
+//    public void updatePhoto(String id, PhotoDto document) {
+//        findById(id);
+//        PhotoDocument photoDocumentEntity = getPhotoDocument(document);
+//        photoRepository.save(photoDocumentEntity);
+//    }
 
     public List<PhotoDto> findAll() {
         Iterable<PhotoDocument> photoDocuments = photoRepository.findAll();
@@ -74,9 +75,9 @@ public class PhotoService {
         return photoDtoList;
     }
 
-    public void deletePhoto(String id) {
-        findById(id);
-        photoRepository.deleteById(id);
-    }
+//    public void deletePhoto(String id) {
+//        findById(id);
+//        photoRepository.deleteById(id);
+//    }
 
 }

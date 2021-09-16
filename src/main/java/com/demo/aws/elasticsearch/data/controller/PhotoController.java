@@ -32,11 +32,11 @@ public class PhotoController {
         return new ResponseEntity<>(service.createPhoto(document), HttpStatus.CREATED);
     }
 
-    @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Void> updatePhoto(@PathVariable String id, @RequestBody PhotoDto document) {
-        service.updatePhoto(id, document);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-    }
+//    @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+//    public ResponseEntity<Void> updatePhoto(@PathVariable String id, @RequestBody PhotoDto document) {
+//        service.updatePhoto(id, document);
+//        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+//    }
 
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<PhotoDto> findById(@PathVariable String id) {
@@ -53,10 +53,10 @@ public class PhotoController {
         return new ResponseEntity<>(service.search(key, value), HttpStatus.OK);
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletePhoto(@PathVariable String id) {
-        service.deletePhoto(id);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-
-    }
+//    @DeleteMapping("/{id}")
+//    public ResponseEntity<Void> deletePhoto(@PathVariable String id) {
+//        service.deletePhoto(id);
+//        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+//
+//    }
 }
