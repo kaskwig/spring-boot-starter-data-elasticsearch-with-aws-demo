@@ -5,7 +5,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 
 @Data
-@Document(indexName = "customer-data-for-matching-ohio-v3", type = "_doc", createIndex = false)
+@Document(indexName = "customer-data-for-matching-ohio-v3", createIndex = false)
 public class CustomerDocument {
     @Id
     private String id;

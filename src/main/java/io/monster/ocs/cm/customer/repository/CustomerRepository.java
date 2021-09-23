@@ -16,6 +16,6 @@ public interface CustomerRepository extends ElasticsearchRepository<CustomerDocu
     @Query("{\"match\": {\"?0\": \"?1\"}}")
     List<CustomerDocument> findByUsingQuery(String key, String value);
 
-    @Query("{\"bool\": {\"must\": [ {\"match\": {\"Firstname\": \"?0\"}}, {\"match\": {\"UserID\": 137680508}} ]}}")
+    @Query("{\"bool\": {\"must\": [ {\"match\": {\"firstName\": \"?0\"}}, {\"match\": {\"userId\": 137680508}} ]}}")
     Optional<CustomerDocument> getByFirstName(String firstName);
 }

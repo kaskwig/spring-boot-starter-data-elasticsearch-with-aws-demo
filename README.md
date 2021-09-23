@@ -1,2 +1,2 @@
-# spring-boot-starter-data-elasticsearch-with-aws
-Sample Project to demonstrate the integration of Springboot ElasticSearch Data with Amazon ElasticSearch Service
+# b2b-customers-search-service
+tbd

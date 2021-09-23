@@ -8,11 +8,6 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AWSCredentialsConfiguration {
 
-    @Value("${aws.es.accessKey:}")
-    private String esAccessKey = null;
-    @Value("${aws.es.secretKey:}")
-    private String esSecretKey = null;
-
     @Bean
     public DefaultAWSCredentialsProviderChain awsDynamoCredentialsProviderDevelopment() {
         return new DefaultAWSCredentialsProviderChain();

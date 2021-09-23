@@ -14,6 +14,7 @@ public class SearchConfiguration {
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
                         .allowedMethods("*")
+                        .allowedOriginPatterns("*")
                         .allowCredentials(true);
             }
         };
