@@ -1,4 +1,4 @@
-package com.demo.aws.elasticsearch.data;
+package io.monster.ocs.cm.customer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

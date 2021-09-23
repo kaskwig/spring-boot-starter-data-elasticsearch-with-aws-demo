@@ -1,9 +1,13 @@
-package com.demo.aws.elasticsearch.data.model;
+package io.monster.ocs.cm.customer;
 
 import lombok.Data;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.elasticsearch.annotations.Document;
 
 @Data
-public class PhotoDto {
+@Document(indexName = "customer-data-for-matching-ohio-v3", type = "_doc", createIndex = false)
+public class CustomerDocument {
+    @Id
     private String id;
     private Integer userId;
     private Integer channelId;

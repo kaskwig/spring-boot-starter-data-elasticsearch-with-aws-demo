@@ -1,4 +1,4 @@
-package com.demo.aws.elasticsearch.data.configuration;
+package io.monster.ocs.cm.customer.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,14 +18,14 @@ public class SwaggerConfiguration {
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2).apiInfo(getApiInfo()).select()
-                .apis(RequestHandlerSelectors.basePackage("com.demo.aws.elasticsearch.data.controller")).build();
+                .apis(RequestHandlerSelectors.basePackage("io.monster.ocs.cm.customer")).build();
     }
 
     private ApiInfo getApiInfo() {
         return new ApiInfo("AWS Spring Elastic Search Data Sample",
-                "Sample application to elucidate how AWS Elasticsearch can be leveraged with the spring-boot-starter-data-elasticsearch.",
-                "V1", "https://github.com/PRASANTHRAJENDRAN/spring-boot-starter-data-elasticsearch-with-aws-demo",
-                new Contact("Prasanth Rajendran's GitHub", "https://github.com/PRASANTHRAJENDRAN/spring-boot-starter-data-elasticsearch-with-aws-demo", "abc@123"),
+                "Customer Search Application for Seeker Matching",
+                "V1", "https://github.com/Monster-OCS/ocs-customer-search",
+                new Contact("WIOINS Team Github", "https://github.com/Monster-OCS/ocs-customer-search", ""),
                 "", "",
                 Collections.emptyList());
     }

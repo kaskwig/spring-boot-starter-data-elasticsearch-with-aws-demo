@@ -1,4 +1,4 @@
-package com.demo.aws.elasticsearch.data.exception;
+package io.monster.ocs.cm.customer.exception;
 
 import lombok.Data;
 import org.springframework.http.HttpStatus;

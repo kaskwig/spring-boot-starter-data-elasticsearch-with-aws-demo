@@ -1,4 +1,4 @@
-package com.demo.aws.elasticsearch.data.configuration;
+package io.monster.ocs.cm.customer.configuration;
 /*
  * Copyright 2012-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *

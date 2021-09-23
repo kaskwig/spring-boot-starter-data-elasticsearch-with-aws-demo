@@ -1,7 +1,8 @@
-package com.demo.aws.elasticsearch.data.configuration;
+package io.monster.ocs.cm.customer.configuration;
 
 import com.amazonaws.auth.AWS4Signer;
 import com.amazonaws.auth.AWSCredentialsProvider;
+import com.amazonaws.auth.DefaultAWSCredentialsProviderChain;
 import org.apache.http.HttpHost;
 import org.apache.http.HttpRequestInterceptor;
 import org.elasticsearch.client.RestClient;
@@ -15,28 +16,18 @@ import org.springframework.data.elasticsearch.repository.config.EnableElasticsea
 
 
 @Configuration
-@EnableElasticsearchRepositories(basePackages = "com.demo.aws.elasticsearch.data.repository")
+@EnableElasticsearchRepositories(basePackages = "io.monster.ocs.cm.customer.repository")
 public class ElasticSearchRestClientConfiguration extends AbstractElasticsearchConfiguration {
 
     @Value("${aws.es.endpoint}")
-    private String endpoint = null;
+    private String endpoint;
 
     @Value("${aws.es.region}")
-    private String region = null;
+    private String region;
 
     @Autowired
     private AWSCredentialsProvider credentialsProvider = null;
 
-    /**
-     * SpringDataElasticSearch data provides us the flexibility to implement our custom {@link RestHighLevelClient} instance by implementing the abstract method {@link AbstractElasticsearchConfiguration#elasticsearchClient()},
-     *
-     * @return RestHighLevelClient. AWS ElasticService Https rest calls have to be signed with AWS credentials, hence an interceptor {@link HttpRequestInterceptor} is required to sign every
-     * API calls with credentials. The signing is happening through the below snippet
-     * <code>
-     * signer.sign(signableRequest, awsCredentialsProvider.getCredentials());
-     * </code>
-     */
-    @Override
     @Bean
     public RestHighLevelClient elasticsearchClient() {
         AWS4Signer signer = new AWS4Signer();
@@ -44,6 +35,8 @@ public class ElasticSearchRestClientConfiguration extends AbstractElasticsearchC
         signer.setServiceName(serviceName);
         signer.setRegionName(region);
         HttpRequestInterceptor interceptor = new AWSRequestSigningApacheInterceptor(serviceName, signer, credentialsProvider);
-        return new RestHighLevelClient(RestClient.builder(HttpHost.create(endpoint)).setHttpClientConfigCallback(e -> e.addInterceptorLast(interceptor)));
+        return new RestHighLevelClient(RestClient
+                .builder(HttpHost.create(endpoint))
+                .setHttpClientConfigCallback(e -> e.addInterceptorLast(interceptor)));
     }
 }

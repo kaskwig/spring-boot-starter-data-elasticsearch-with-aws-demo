@@ -1,4 +1,4 @@
-package com.demo.aws.elasticsearch.data.exception;
+package io.monster.ocs.cm.customer.exception;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -10,11 +10,6 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import java.util.Objects;
 
-/**
- * Exception handler to handle all the custom application exception {@link ApplicationException} and general {@link Exception}.
- * Apart from all the custom exception we will delicate it to ResponseEntityExceptionHandler{@link #handleApiException(ApplicationException, WebRequest)}
- * method to get the pertinent response entity.
- */
 @ControllerAdvice
 @Slf4j
 public class ApplicationExceptionHandler extends ResponseEntityExceptionHandler {

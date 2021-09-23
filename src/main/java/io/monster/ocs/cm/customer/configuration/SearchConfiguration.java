@@ -1,4 +1,4 @@
-package com.demo.aws.elasticsearch.data.configuration;
+package io.monster.ocs.cm.customer.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,7 +12,9 @@ public class SearchConfiguration {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**").allowedMethods("*").allowCredentials(true);
+                registry.addMapping("/**")
+                        .allowedMethods("*")
+                        .allowCredentials(true);
             }
         };
     }
